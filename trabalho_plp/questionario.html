@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="bootstrap_arquivos/bootstrap.css" rel="stylesheet">
+    <link href="css/questionario.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/questionario.js"></script> -->
+
+    <title>Flying Cloud</title>
+    <link rel="icon" href="img/nuvem_voadora_2.png" type="image/x-icon">
+  </head>
+
+<script type="text/javascript">
+	function conferirQuestionario(){
+		var obj;
+		var valQst1 = $("#qst1").val();
+		var valQst2 = $("#qst2").val();
+		var valQst3;
+
+		$(document).ready(function(){
+	        $("input:radio").each(function(){
+	            valQst3 = $( "input:checked" ).val();
+	        });
+	    });;
+		$.ajax({
+		    url: 'JSON/respostas_corretas.json',
+		    type: "GET",
+		    dataType: "JSON",
+		    success: function (data) {
+		        obj = data;
+
+				if(valQst1 == obj.qst1){
+					$(".row .qst1").css("backgroundColor", "lightgreen");
+				}else{
+					$(".row .qst1").css("backgroundColor", "lightcoral");
+				}
+				
+				if(valQst2 == obj.qst2){
+					$(".row .qst2").css("backgroundColor", "lightgreen");
+				}else{
+					$(".row .qst2").css("backgroundColor", "lightcoral");
+				}
+
+				if(valQst3 == obj.qst3){
+					$(".row .qst3").css("backgroundColor", "lightgreen");
+				}else{
+					$(".row .qst3").css("backgroundColor", "lightcoral");
+				}
+
+				
+		    }
+		});
+	}	
+
+</script>
+
+<body>
+	<nav class="navbar navbar-expand-lg ">
+		<a class="navbar-brand" href="index.html">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Matemática</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<header>
+	    <div class="col-sm-3" style="float: left; margin-left: 5%">
+            <img src="img/nuvem_voadora_2.png" height="120px" width="200px">
+	    </div>
+	    <div class="col-sm-10" style="">
+            <h1 style="text-align: center; padding: 5%"> Questionário </h1>
+        </div>
+	</header>
+
+	<div class="fundo">
+
+    		
+
+		    <div class="row">
+		    	<div class="container">
+		    		<p>Questão 1:(FUVEST 2010)
+					A magnitude de um terremoto na escala Richter é proporcional ao logaritmo, na base 10, da energia liberada pelo abalo sísmico. Analogamente, o pH de uma solução aquosa é dado pelo logaritmo, na base 10, do inverso da concentração de íons H+. Considere as seguintes afirmações:<br>
+					I. O uso do logaritmo nas escalas mencionadas justificase pelas variações exponenciais das grandezas envolvidas.<br>
+					II. A concentração de íons H+ de uma solução ácida com pH 4 é 10 mil vezes maior que a de uma solução alcalina com pH 8.<br>
+					III. Um abalo sísmico de magnitude 6 na escala Richter libera duas vezes mais energia que outro, de magnitude 3.<br>
+					Está correto o que se afirma somente em:</p>
+					<div class="row qst1">
+						<select style="background-color: white" id="qst1" name="qst1" class="qst1">
+							<option value=""></option>
+							<option value="A"> I e II</option>
+							<option value="B">Nenhuma das opcoes</option>
+							<option value="C">I e III </option>
+							<option value="D">II III</option>
+							<option value="E">Todas as opções</option>
+						</select>
+					</div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="container">
+		    		<br><br><br><br>
+		    		<p>Questão 2:(UFMG 2009)</p>
+					<p>Numa calculadora científica, ao se digitar um número positivo qualquer e, em seguida, se apertar a tecla log, aparece, no visor, o logaritmo decimal do número inicialmente digitado.
+					Digita-se o número 10.000 nessa calculadora e, logo após, aperta-se, N vezes, a tecla log, até aparecer um número negativo no visor. Então, é CORRETO afirmar que o número N é igual a:</p>
+					<div class="row qst2">
+						<input style="height: 35px; margin-top: 1%;margin-left: 1.5%" type="text" value="" id="qst2" name="qst2">
+					</div>
+		    	</div>
+		    </div>
+		    <div class="row">
+		    	<div class="container">
+		    		<br><br><br><br>
+		    		<p>Questão 3:(UFRGS 2016)</p>
+					<p>Se <em>10<sup>x</sup> = 20<sup>y</sup></em> , atribuindo 0,3 para <em>log</em> 2 , então o valor de <em>x/y</em> é:</p>
+					<div class="row qst3" style="height: 100px; display:block;">
+						<input type="radio" id="qst3_a" name="qst3" value="0.3"> 0,3 <br>
+						<input type="radio" id="qst3_b" name="qst3" value="0.5"> 0,5 <br>
+						<input type="radio" id="qst3_c" name="qst3" value="0.7"> 0,7 <br>
+						<input type="radio" id="qst3_d" name="qst3" value="1.3"> 1,3 <br>
+					</div>
+		    	</div>
+		    </div>
+	    	<div class="row">
+		    	<div class="container">
+		    		<button type="button" onclick="conferirQuestionario()" class="btn btn-primary">Confira suas respostas!</button>
+		    	</div>
+		    </div>
+	    	
+	</div>
+
+</body>
