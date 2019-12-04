@@ -13,4 +13,4 @@ ou
 
 ## Configuração para Desenvolvimento
 
-Para executar a página é necessário que o WAMPP ou XAMPP esteja corretamente instalado e funcional e copiar o arquivo trabalho_plp dentro do diretório www contido nos diretórios do software (WAMPP ou XAMPP) instalado.  
+Para executar a página é necessário que o WAMPP ou XAMPP esteja corretamente instalado e funcional e copiar os arquivos da pasta trabalho_plp para dentro do diretório www contido nos diretórios do software (WAMPP ou XAMPP) instalado.  
